@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Lottery Platform</title>
+</head>
+<body>
+    <div id="loginPage">
+        <h2>Login Page</h2>
+        <form action="#" method="post" id="loginForm">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div id="lotteryFunctions" style="display:none;">
+        <h2>Welcome to the Lottery Platform!</h2>
+        <p>Welcome back, <span id="loggedInUser">[用户名]</span>!</p>
+        <!-- 替换 [用户名] 为实际登录的用户名 -->
+
+        <h3>Functions:</h3>
+        <ul>
+            <li><a href="#">Place Bet</a></li>
+            <li><a href="#">Check Results</a></li>
+            <li><a href="#">Claim Winnings</a></li>
+            <li><a href="#">View Commissions</a></li>
+            <li><button onclick="logout()">Logout</button></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            // 在这里添加后端验证用户名和密码的逻辑
+            // 假设验证成功
+            document.getElementById("loginPage").style.display = "none";
+            document.getElementById("lotteryFunctions").style.display = "block";
+            document.getElementById("loggedInUser").textContent = username;
+        });
+
+        function logout() {
+            // 在这里添加注销操作，比如清除登录状态等
+            // 清除用户名
+            document.getElementById("loggedInUser").textContent = "";
+            // 重定向到登录页面
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+</html>
